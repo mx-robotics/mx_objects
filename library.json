@@ -1,0 +1,26 @@
+{
+    "name": "mx_objects",
+    "version": "1.0.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mx-robotics/mx_objects.git"
+    },
+    "authors": [
+        {
+            "name": "Markus Bader",
+            "email": "markus.bader@mx-robotics.com",
+            "url": "http://www.mx-robotics.com",
+            "maintainer": true
+        }
+    ],
+    "build": {
+        "flags": [
+            "-I common/include"
+        ],
+        "srcFilter": [
+            "+<common/src/car/mx/objects/*.cpp>"
+        ]
+    },
+    "frameworks": "*",
+    "platforms": "*"
+}
