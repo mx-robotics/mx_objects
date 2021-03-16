@@ -37,7 +37,7 @@ add_subdirectory(common)
 # ===============================
 
 # Add all targets to the build-tree export set
-export(TARGETS mx_objects demo_mx_objects
+export(TARGETS mx_objects mx_objects_demo
   FILE "${PROJECT_BINARY_DIR}/MXObjectsTargets.cmake")
 
 # Export the package for use from the build-tree
@@ -48,7 +48,7 @@ export(PACKAGE MXObjects)
 file(RELATIVE_PATH REL_INCLUDE_DIR "${INSTALL_CMAKE_DIR}"
    "${INSTALL_INCLUDE_DIR}")
 # ... for the build tree
-set(CONF_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}" "${PROJECT_BINARY_DIR}")
+set(CONF_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}/common/include/")
 configure_file(MXObjectsConfig.cmake.in
   "${PROJECT_BINARY_DIR}/MXObjectsConfig.cmake" @ONLY)
 # ... for the install tree
@@ -68,4 +68,16 @@ install(FILES
 # Install the export set for use with the install-tree
 install(EXPORT MXObjectsTargets DESTINATION
   "${INSTALL_CMAKE_DIR}" COMPONENT dev)
+
+  
+# uninstall target
+if(NOT TARGET uninstall)
+  configure_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/cmake_uninstall.cmake.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
+    IMMEDIATE @ONLY)
+
+  add_custom_target(uninstall
+    COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake)
+endif()
 

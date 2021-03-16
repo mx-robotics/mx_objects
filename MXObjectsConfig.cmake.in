@@ -5,15 +5,15 @@
 #  MXOBJECTS_EXECUTABLE   - the bar executable
 
 # Compute paths
-get_filename_component(MXOBJECTS_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
-set(MXOBJECTS_INCLUDE_DIRS "@CONF_INCLUDE_DIRS@")
+get_filename_component(MXObjects_CMAKE_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)
+set(MXObjects_INCLUDE_DIRS "@CONF_INCLUDE_DIRS@")
 
 # Our library dependencies (contains definitions for IMPORTED targets)
 if(NOT TARGET mx_objects AND NOT MXObjects_BINARY_DIR)
-  include("${MXOBJECTS_CMAKE_DIR}/MXObjectsTargets.cmake")
+  include("${MXObjects_CMAKE_DIR}/MXObjectsTargets.cmake")
 endif()
 
 # These are IMPORTED targets created by MXObjectsTargets.cmake
-set(MXOBJECTS_LIBRARIES mx_objects)
-set(MXOBJECTS_EXECUTABLE mx_objects_demo)
+set(MXObjects_LIBRARIES mx_objects)
+set(MXObjects_EXECUTABLE mx_objects_demo)
 

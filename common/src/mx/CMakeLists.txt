@@ -13,11 +13,11 @@ install(TARGETS mx_objects
   PUBLIC_HEADER DESTINATION "${INSTALL_INCLUDE_DIR}/car/com"
     COMPONENT dev)
 
-add_executable(demo_mx_objects main.cpp)
-target_link_libraries(demo_mx_objects mx_objects)
+add_executable(mx_objects_demo main.cpp)
+target_link_libraries(mx_objects_demo mx_objects)
 
 
-install(TARGETS demo_mx_objects
+install(TARGETS mx_objects_demo
   # IMPORTANT: Add the joystick executable to the "export-set"
   EXPORT MXObjectsTargets
   RUNTIME DESTINATION "${INSTALL_BIN_DIR}" COMPONENT bin)

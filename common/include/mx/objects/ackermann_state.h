@@ -21,7 +21,7 @@ public:
     static const int MODE_PWM = 1;
     static const int MODE_VELOCITY = 2;
     AckermannState()
-        , coubled{0, 0}
+        : coubled{0, 0}
         , v{0, 0}
         , steering(0.)
         , mode(MODE_NA) {
@@ -96,7 +96,6 @@ public:
         return std::string ( buf );
     }
 #endif
-};
 };
 };
 };
