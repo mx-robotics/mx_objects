@@ -31,6 +31,7 @@ endforeach()
 include_directories("${PROJECT_SOURCE_DIR}/common/include")  # to find foo/config.h
 
 add_subdirectory(common)
+add_subdirectory(tests/)
 
 
 # The interesting stuff goes here
