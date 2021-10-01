@@ -30,3 +30,17 @@
 *.exe
 *.out
 *.app
+
+# CMake
+CMakeCache.txt
+CMakeFiles
+Makefile
+cmake_install.cmake
+install_manifest.txt
+build
+
+# Kdevelop
+*.kdev4
+.kdev4*
+*~
+*swp
