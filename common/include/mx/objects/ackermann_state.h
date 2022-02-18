@@ -97,8 +97,8 @@ public:
     }
 #endif
 };
-};
-};
+}
+}
 
 
 #endif // MX_OBJECTS_ACKERMANNSTATE_H
