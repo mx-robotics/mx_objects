@@ -15,17 +15,17 @@ sudo make install
 ### Installation into a spezific folder
 ```shell
 # devine installation forder
-export INSTALL_PREFIX=/opt/mx_objects/
+export MXObjects_INSTALL_PREFIX=/opt/mxr
 git clone https://github.com/mx-robotics/mx_objects.git
 cd mx_objects
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=$INSTALL_PREFIX .. 
+cmake -DCMAKE_INSTALL_PREFIX=$MXObjects_INSTALL_PREFIX .. 
 # extend the ld search path
-sudo sh -c "echo $INSTALL_PREFIX/lib > /etc/ld.so.conf.d/mx_objects.conf"
+sudo sh -c "echo $MXObjects_INSTALL_PREFIXX/lib > /etc/ld.so.conf.d/mx_objects.conf"
 sudo ldconfig
 # make cmake config avaliable
-echo "export MXObjects_DIR=$INSTALL_PREFIX/lib/CMake/MXObjects" >> ~/.bashrc
+echo "export MXObjects_DIR=$MXObjects_INSTALL_PREFIX/lib/CMake" >> ~/.bashrc
 make 
 sudo make install
 ```
