@@ -22,7 +22,7 @@ mkdir build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX=$MXObjects_INSTALL_PREFIX .. 
 # extend the ld search path
-sudo sh -c "echo $MXObjects_INSTALL_PREFIXX/lib > /etc/ld.so.conf.d/mx_objects.conf"
+sudo sh -c "echo $MXObjects_INSTALL_PREFIX/lib > /etc/ld.so.conf.d/mx_objects.conf"
 sudo ldconfig
 # make cmake config avaliable
 echo "export MXObjects_DIR=$MXObjects_INSTALL_PREFIX/lib/CMake" >> ~/.bashrc
