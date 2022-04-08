@@ -28,7 +28,8 @@ foreach(p LIB BIN INCLUDE CMAKE)
 endforeach()
 
 # set up include-directories
-include_directories("${PROJECT_SOURCE_DIR}/common/include")  # to find foo/config.h
+set(PROJECT_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/common/include")
+include_directories(${PROJECT_INCLUDE_DIR})  # to find foo/config.h
 
 add_subdirectory(common)
 add_subdirectory(tests/)
@@ -49,11 +50,11 @@ export(PACKAGE MXObjects)
 file(RELATIVE_PATH REL_INCLUDE_DIR "${INSTALL_CMAKE_DIR}"
    "${INSTALL_INCLUDE_DIR}")
 # ... for the build tree
-set(CONF_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}/common/include/")
+set(CONF_INCLUDE_DIRS "${PROJECT_INCLUDE_DIR}")  # local config
 configure_file(MXObjectsConfig.cmake.in
   "${PROJECT_BINARY_DIR}/MXObjectsConfig.cmake" @ONLY)
 # ... for the install tree
-set(CONF_INCLUDE_DIRS "${INSTALL_INCLUDE_DIR}")
+set(CONF_INCLUDE_DIRS "${INSTALL_INCLUDE_DIR}")  # installed config
 configure_file(MXObjectsConfig.cmake.in
   "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/MXObjectsConfig.cmake" @ONLY)
 # ... for both
