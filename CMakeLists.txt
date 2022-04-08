@@ -53,7 +53,7 @@ set(CONF_INCLUDE_DIRS "${PROJECT_SOURCE_DIR}/common/include/")
 configure_file(MXObjectsConfig.cmake.in
   "${PROJECT_BINARY_DIR}/MXObjectsConfig.cmake" @ONLY)
 # ... for the install tree
-set(CONF_INCLUDE_DIRS "\${MXOBJECTS_CMAKE_DIR}/${REL_INCLUDE_DIR}")
+set(CONF_INCLUDE_DIRS "${INSTALL_INCLUDE_DIR}")
 configure_file(MXObjectsConfig.cmake.in
   "${PROJECT_BINARY_DIR}${CMAKE_FILES_DIRECTORY}/MXObjectsConfig.cmake" @ONLY)
 # ... for both
